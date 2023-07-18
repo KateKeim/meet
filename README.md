@@ -1,3 +1,6 @@
+<h3>serverless functions (Exercise 4.2)</h3>
+
+>I implement the serverless function that will handle the specific operations I need with the Google Calendar API and handle requests from the website.
 
 <h1>Meet App</h1>
 
