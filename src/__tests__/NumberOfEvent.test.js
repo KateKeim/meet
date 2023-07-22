@@ -1,22 +1,33 @@
+/* eslint-disable testing-library/no-render-in-setup */
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable no-undef */
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import NumberOfEvents from '../components/NumberOfEvents';
 
-    let numberOfEventComponent;
+describe('<NumberOfEvents /> component', () => {
+  let NumberOfEventsComponent;
+  beforeEach(() => {
+    NumberOfEventsComponent = render(<NumberOfEvents />);
+  });
 
-    test('renders text input', () => {
-      const numberOfTextBox = numberOfEventComponent.queryByRole('textbox');
-      expect(numberOfTextBox).toBeInTheDocument();
-      expect(numberOfTextBox).toHaveClass('city');
-    });
-  
-    test('by default, event´s details section should be number 32)', () => {
-        const NumberOfEvent = numberOfEventComponent.queryByLabel('Enter number of events');
-        expect(NumberOfEvent).toHaveValue('32');
-    });
+  test('renders number of events text input', () => {
+    const numberTextBox = NumberOfEventsComponent.queryByRole('textbox');
+    expect(numberTextBox).toBeInTheDocument();
+    expect(numberTextBox).toHaveClass('number-of-events-input');
+  });
 
-    test('value of number of event change correctly', async () => {
-        const user = userEvent.setup();
+  test('default number is 32', async () => {
+    const numberTextBox = NumberOfEventsComponent.queryByRole('textbox');
+    expect(numberTextBox).toHaveValue("32");
+  });
 
-        const numberOfTextBox = numberOfEventComponent.queryByRole('textbox');
-        await user.type(numberOfTextBox, '{backspace}{backspace}10');
-    })
+  test('number of events text box value changes when the user types in it', async () => {
+    const user = userEvent.setup();
+    const numberTextBox = NumberOfEventsComponent.queryByRole('textbox');
+    await user.type(numberTextBox, "123")
+
+    // 32 (the default value already written) + 123
+    expect(numberTextBox).toHaveValue("32123");
+  });
+});
