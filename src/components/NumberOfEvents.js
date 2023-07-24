@@ -1,7 +1,7 @@
 /* eslint-disable no-empty-pattern */
 import { useState } from "react";
 
-const NumberOfEvents = ({ }) => {
+const NumberOfEvents = ({ setCurrentNOE }) => {
 
   const [number, setNumber] = useState(32);
 

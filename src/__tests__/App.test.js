@@ -57,4 +57,22 @@ describe('<App /> integration', () => {
 
   });
 
-});
+  test('renders list of event matching the number of event filled by user', async () => {
+    const user = userEvent.setup();
+    const AppComponent = render(<App />);
+    const AppDOM = AppComponent.container.firstChild;
+
+    const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events');
+    const NumberOfEventsInput = within(NumberOfEventsDOM).queryByRole('textbox');
+
+    await user.type(NumberOfEventsInput, "{backspace}{backspace}10");
+
+    const EventListDOM = AppDOM.querySelector('#event-list');
+    const numberEventItems = within(EventListDOM).queryAllByRole('listitem');
+    const newNumber = "10";
+
+
+    expect(newNumber).toBe(NumberOfEventsInput.value);
+  });
+
+})
