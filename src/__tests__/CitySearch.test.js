@@ -3,7 +3,7 @@
 /* eslint-disable testing-library/no-render-in-setup */
 /* eslint-disable testing-library/prefer-screen-queries */
 /* eslint-disable testing-library/render-result-naming-convention */
-import { render, within } from '@testing-library/react';
+import { render, within, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CitySearch from '../components/CitySearch';
 import App from '../App';
@@ -14,6 +14,7 @@ describe('<CitySearch /> component', () => {
   beforeEach(() => {
     CitySearchComponent = render(<CitySearch allLocations={[]}/>);
   });
+
   test('renders text input', () => {
     const cityTextBox = CitySearchComponent.queryByRole('textbox');
     expect(cityTextBox).toBeInTheDocument();
@@ -59,9 +60,12 @@ describe('<CitySearch /> component', () => {
 
   test('renders the suggestion text in the textbox upon clicking on the suggestion', async () => {
     const user = userEvent.setup();
-    const allEvents = await getEvents(); 
+    const allEvents = await getEvents();
     const allLocations = extractLocations(allEvents);
-    CitySearchComponent.rerender(<CitySearch allLocations={allLocations} />);
+    CitySearchComponent.rerender(<CitySearch
+      allLocations={allLocations}
+      setCurrentCity={() => { }}
+    />);
 
     const cityTextBox = CitySearchComponent.queryByRole('textbox');
     await user.type(cityTextBox, "Berlin");
@@ -91,7 +95,9 @@ describe('<CitySearch /> integration', () => {
     const allEvents = await getEvents();
     const allLocations = extractLocations(allEvents);
 
-    const suggestionListItems = within(CitySearchDOM).queryAllByRole('listitem');
-    expect(suggestionListItems.length).toBe(allLocations.length + 1);
- });
+    await waitFor(() => {
+      const suggestionListItems = within(CitySearchDOM).queryAllByRole('listitem');
+      expect(suggestionListItems.length).toBe(allLocations.length + 1);
+    });
+  });
 });
