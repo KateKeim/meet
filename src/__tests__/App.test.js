@@ -67,8 +67,8 @@ describe('<App /> integration', () => {
 
     await user.type(NumberOfEventsInput, "{backspace}{backspace}10");
 
-    const EventListDOM = AppDOM.querySelector('#event-list');
-    const numberEventItems = within(EventListDOM).queryAllByRole('listitem');
+    //const EventListDOM = AppDOM.querySelector('#event-list');
+    //const numberEventItems = within(EventListDOM).queryAllByRole('listitem');
     const newNumber = "10";
 
 

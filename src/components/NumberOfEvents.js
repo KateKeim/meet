@@ -1,9 +1,13 @@
 /* eslint-disable no-empty-pattern */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const NumberOfEvents = ({ setCurrentNOE }) => {
+const NumberOfEvents = () => {
 
   const [number, setNumber] = useState(32);
+
+  useEffect(() => {
+    setNumber();
+  }, []);
 
   const handleInputChanged = (event) => {
     const value = event.target.value;
