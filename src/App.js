@@ -14,7 +14,6 @@ const App = () => {
   const [currentNOE, setCurrentNOE] = useState(32);
   const [events, setEvents] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
-  const [number, setNumber] = useState(32);
 
 
   useEffect(() => {

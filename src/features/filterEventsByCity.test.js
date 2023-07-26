@@ -3,11 +3,13 @@
 import { loadFeature, defineFeature } from 'jest-cucumber';
 import { render, within, waitFor } from '@testing-library/react';
 import App from '../App';
-import { getEvents } from '../mock-data';
+//import { getEvents } from '../mock-data';
+import { getEvents } from '../api';
 import userEvent from '@testing-library/user-event';
 
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
+/*---------------------------------------------------- SCENARIO 1 ---------------------------------------------------------*/
 defineFeature(feature, test => {
     test('When user hasn’t searched for a city, show upcoming events from all cities.', ({ given, when, then }) => {
         given('user hasn’t searched for any city', () => {
@@ -31,7 +33,7 @@ defineFeature(feature, test => {
           });
     });
 
-
+/*---------------------------------------------------- SCENARIO 2 ---------------------------------------------------------*/
     test('User should see a list of suggestions when they search for a city.', ({ given, when, then }) => {
         let AppComponent;
         given('the main page is open', () => {
@@ -53,7 +55,7 @@ defineFeature(feature, test => {
       });
     });
 
-
+/*---------------------------------------------------- SCENARIO 3 ---------------------------------------------------------*/
     test('User can select a city from the suggested list.', ({ given, and, when, then }) => {
     let AppComponent;
     let AppDOM; 
