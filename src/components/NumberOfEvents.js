@@ -1,8 +1,7 @@
 /* eslint-disable no-empty-pattern */
 import { useState, useEffect } from "react";
 
-const NumberOfEvents = () => {
-
+export const NumberOfEvents = () => {
   const [number, setNumber] = useState(32);
 
   useEffect(() => {
@@ -16,12 +15,15 @@ const NumberOfEvents = () => {
 
   return (
     <div id="number-of-events">
-      <label htmlFor="number-of-events-input">Number of Events: </label>
+      <label htmlFor="number-of-events-input">
+        Number of Events: 
+      </label>
       <input
         type="text"
         id="number-of-events-input"
         className="number-of-events-input"
         value={number}
+        defaultValue={32}
         onChange={handleInputChanged}
       />
     </div>

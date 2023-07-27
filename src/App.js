@@ -9,7 +9,7 @@ import { extractLocations, getEvents } from './api';
 
 import './App.css';
 
-const App = () => {
+export const App = () => {
   const [allLocations, setAllLocations] = useState([]);
   const [currentNOE, setCurrentNOE] = useState(32);
   const [events, setEvents] = useState([]);

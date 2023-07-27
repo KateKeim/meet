@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Event = ({ event }) => {
+export const Event = ({ event }) => {
   const [showDetails, setShowDetails] = useState(false);
   return (
     <li className="event">
