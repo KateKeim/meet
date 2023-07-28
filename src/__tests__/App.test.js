@@ -22,7 +22,7 @@ describe('<App /> component', () => {
   });
 
   test('render NumberOfEvents', () => {
-    expect(AppDOM.querySelector('#number-of-events')).toBeInTheDocument();
+    expect(AppDOM.querySelector('#number-of-events-input')).toBeInTheDocument();
   });
 });
 
@@ -62,17 +62,15 @@ describe('<App /> integration', () => {
     const AppComponent = render(<App />);
     const AppDOM = AppComponent.container.firstChild;
 
-    const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events');
+    const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events-input');
     const NumberOfEventsInput = within(NumberOfEventsDOM).queryByRole('textbox');
+    expect(NumberOfEventsInput.value).toBe("32");
 
     await user.type(NumberOfEventsInput, "{backspace}{backspace}10");
 
-    //const EventListDOM = AppDOM.querySelector('#event-list');
-    //const numberEventItems = within(EventListDOM).queryAllByRole('listitem');
-    const newNumber = "10";
-
-
-    expect(newNumber).toBe(NumberOfEventsInput.value);
+    const EventListDOM = AppDOM.querySelector('#event-list');
+    const allRenderedEventItems = within(EventListDOM).queryAllByRole('listitem');
+    expect(allRenderedEventItems.length).toBe(Number(NumberOfEventsInput.value));
   });
 
 })

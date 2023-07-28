@@ -10,8 +10,8 @@ import { extractLocations, getEvents } from './api';
 import './App.css';
 
 export const App = () => {
-  const [allLocations, setAllLocations] = useState([]);
   const [currentNOE, setCurrentNOE] = useState(32);
+  const [allLocations, setAllLocations] = useState([]);
   const [events, setEvents] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
 
@@ -33,7 +33,7 @@ export const App = () => {
     <div className="App">
       <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
       <NumberOfEvents events={events} setCurrentNOE={setCurrentNOE}/>
-      <EventList events={events} />
+      <EventList events={events} currentNOE={currentNOE} />
     </div>
   );
 }

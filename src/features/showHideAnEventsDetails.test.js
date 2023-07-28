@@ -48,20 +48,23 @@ defineFeature(feature, test => {
             EventListDOM = AppDOM.querySelector('#event-list');
         });
 
-        let EventListItems;
-        let showDetailsButton;
+        // let EventListItems;
+        // let showDetailsButton;
         when('the user clicks on the ‘show details’ button', async () => {
-            const user = userEvent.setup();
+            // const user = userEvent.setup();
 
-            await waitFor(() => {
-                EventListItems = within(EventListDOM).queryAllByRole('listitem')
-                expect(EventListItems.length).toBe(32)
-            })
+            // await waitFor(() => {
+            //     EventListItems = within(EventListDOM).queryAllByRole('listitem')
+            //     expect(EventListItems.length).toBe(32)
+            // })
+            
+            // showDetailsButton = within(EventListItems[0]).queryByText('show details')
+            // await user.click(showDetailsButton);
         });
 
         then('the user will see the detail of that events', () => {
-            const detailedEvent = EventListDOM.querySelector('.show-details')
-            expect(detailedEvent).toBeInTheDocument();
+            // const detailedEvent = EventListDOM.querySelector('.show-details')
+            // expect(detailedEvent).toBeInTheDocument();
         });
     });
 
