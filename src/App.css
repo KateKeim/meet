@@ -109,3 +109,11 @@ input[type="number"] {
     margin: 0 auto;
   }
 }
+
+.alerts-container {
+  position: fixed;
+  top: 0px;
+  left: 20px;
+  width: 250px;
+  z-index: 1000;
+}
