@@ -40,10 +40,10 @@ export const CityEventsChart = ({ allLocations, events}) => {
             <CartesianGrid horizontal={true} vertical={true} />
             <XAxis type="category" dataKey="city" name="City"
                 angle={60} interval={0} tick={{ dx: 20, dy: 40, fontSize: 14 }}
-                stroke="#565656"
+                stroke="#000000"
             />
             <YAxis type="number" dataKey="count" name="Number of Events" allowDecimals={false}
-             stroke="#565656" 
+             stroke="#000000" 
             />
             <Tooltip cursor={{ strokeDasharray: '3 3' }} />
             <Scatter name="A school" data={data} fill="#490765"/>
