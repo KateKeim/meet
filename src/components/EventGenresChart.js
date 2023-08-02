@@ -5,7 +5,7 @@ import { ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts"
 export const EventGenresChart = ({ events }) => {
     const [data, setData] = useState([])
     const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'Angular'];
-    const colors = ['#FF6875', '#9979C1', '#FDAFAB', '#FF9D60', '#8E6E70']
+    const colors = ['#FF6875', '#9979C1', '#FDAFAB', '#BAEEE5', '#CBF2B8']
 
     useEffect(() => {
         setData(getData());
@@ -36,7 +36,7 @@ export const EventGenresChart = ({ events }) => {
                 stroke='#fff'
                 style={{ textShadow: '0px 0px 5px rgba(1, 1, 1, 255' }}
                 textAnchor={x > cx ? 'start' : 'end'}
-                fontSize={16}
+                fontSize={14}
                 dominantBaseline='central'
             >
                 {`${genres[index]} ${(percent * 100).toFixed(0)}%`}
