@@ -53,7 +53,7 @@ return (
           Number of events:
       </label> 
       <input  
-          defaultValue={32} 
+          defaultValue={32}
           onChange={handleInputChanged}
           className="number-of-events-input"
       >
