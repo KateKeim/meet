@@ -50,7 +50,7 @@ return (
       id="number-of-events-input"      
   >
       <label>
-          Number of events:
+          Number of events: 
       </label> 
       <input  
           defaultValue={32}

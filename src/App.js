@@ -4,6 +4,7 @@
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
+import CityEventsChart from './components/CityEventsChart';
 import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 import { useEffect, useState } from 'react';
 import { extractLocations, getEvents } from './api';
@@ -30,7 +31,7 @@ export const App = () => {
       setWarningAlert("This application is currently working offline")
     }
     fetchData();
-  }, [currentCity, currentNOE]);
+  }, [currentCity, currentNOE, navigator.onLine]);
 
   const fetchData = async () => {
     const allEvents = await getEvents();
@@ -51,6 +52,7 @@ export const App = () => {
       <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} 
       setInfoAlert={setInfoAlert} />
       <NumberOfEvents events={events} setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert}/>
+      <CityEventsChart allLocations={allLocations} events={events} />
       <EventList events={events} currentNOE={currentNOE} />
     </div>
   );
