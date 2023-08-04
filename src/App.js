@@ -45,13 +45,13 @@ export const App = () => {
 
   return (
     <div className="App">
-      <div className="alerts-container">
-        {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
-        {errorAlert.length ? <ErrorAlert text={errorAlert}/> : null}
-        {warningAlert.length ? <WarningAlert text={warningAlert}/> : null}
-      </div>
         <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
         <NumberOfEvents events={events} setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert}/>
+        <div className="alerts-container">
+          {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
+          {errorAlert.length ? <ErrorAlert text={errorAlert}/> : null}
+          {warningAlert.length ? <WarningAlert text={warningAlert}/> : null}
+      </div>
       <div className='chart-container'>
         <EventGenresChart events={events}/>
         <CityEventsChart allLocations={allLocations} events={events} />

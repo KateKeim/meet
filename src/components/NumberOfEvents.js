@@ -22,7 +22,10 @@ export const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
       let errorText;
       if (value.length <= 0 || isNaN(value)) {
         errorText = "Only positive numbers are allowed"
-      } else {
+      } else if (value > 50) {
+        errorText = "Could not show more than 50 events"
+      } 
+      else {
         errorText = ""
       }
       setErrorAlert(errorText);

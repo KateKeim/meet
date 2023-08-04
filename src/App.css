@@ -111,7 +111,7 @@ input[type="number"] {
 }
 
 .alerts-container {
-  position: fixed;
+  position: relative;
   top: 0px;
   left: 20px;
   width: 250px;
